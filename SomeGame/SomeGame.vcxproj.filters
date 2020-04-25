@@ -57,6 +57,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
+    <ClCompile Include="Layout.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.hpp">
@@ -87,6 +90,9 @@
       <Filter>Header Files\gui</Filter>
     </ClInclude>
     <ClInclude Include="Button.hpp">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Layout.hpp">
       <Filter>Header Files\gui</Filter>
     </ClInclude>
   </ItemGroup>

@@ -17,9 +17,10 @@ namespace gui
 			const sf::Font& font,
 			unsigned int character_size,
 			const OnClick& on_click_);
-	protected:
+
 		// todo: focus not solved yet..
 		virtual void onMousePressed(const sf::Event::MouseButtonEvent& mouse_btn_event);
+	protected:
 	private:
 		OnClick on_click;
 	};

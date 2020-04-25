@@ -4,7 +4,10 @@
 #include <Windows.h>
 #include "Configuration.hpp"
 
+#include "Layout.hpp"
 #include "Button.hpp"
+#include "TextBox.hpp"
+#include "Label.hpp"
 
 int GameFunc()
 {
@@ -19,12 +22,19 @@ int GameFunc()
 
 	sf::Font font;
 	font.loadFromFile("C:/Windows/Fonts/arial.ttf");
-	gui::Button test{ nullptr,sf::Vector2f(100.0f, 100.0f), sf::Vector2f(500.0f, 300.0f), L"test", font, 30,
-	[]() { std::cout << "click!\n"; } };
+	/*gui::Button test{ nullptr,sf::Vector2f(100.0f, 100.0f), sf::Vector2f(500.0f, 300.0f), L"test", font, 30,
+	[]() {std::cout << "click!\n"; } };
 	test.setBackgroundColor(sf::Color::Green);
 	test.setTextColor(sf::Color::Red);
 	test.setBorderColor(sf::Color::Magenta);
 	test.setBorderThickness(-2.0f);
+	*/
+	const auto layout_pos = sf::Vector2f{ 150.0f, 150.0f };
+	const auto layout_size = sf::Vector2f{ 500.0f, 300.0f };
+	gui::Layout layout{ nullptr, layout_pos, layout_size };
+	layout.setBackgroundColor(sf::Color::White);
+	layout.setBorderColor(sf::Color::Cyan);
+	layout.setBorderThickness(-1.0f);
 
 	long long ticks = 0;
 	double global_t = 0.0;
@@ -56,7 +66,7 @@ int GameFunc()
 					window.close();
 
 				// TODO: one button could trigger to seperate events.. not sure if a reasonable "feature"..
-				test.onEvent(event);
+				layout.onEvent(event);
 			}
 			global_t += dt;
 
@@ -71,7 +81,7 @@ int GameFunc()
 		// Clear screen
 		window.clear();
 
-		window.draw(test);
+		window.draw(layout);
 
 		window.display();
 		ticks++;

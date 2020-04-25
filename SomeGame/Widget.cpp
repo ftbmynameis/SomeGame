@@ -28,6 +28,9 @@ namespace gui
 			break;
 		}
 	}
+	void Widget::onMousePressed(const sf::Event::MouseButtonEvent& mouse_btn_event) {};
+	void Widget::onTextEntered(sf::Uint32 unicode) {};
+	void Widget::onKeyPressed(const sf::Event::KeyEvent& key_event) {};
 
 	void Widget::enable() { enabled = true; }
 	void Widget::disable() { enabled = false; }
@@ -43,10 +46,6 @@ namespace gui
 	bool Widget::isFocusable() const { return focusable; }
 
 	// protected
-	void Widget::onMousePressed(const sf::Event::MouseButtonEvent & mouse_btn_event) {};
-	void Widget::onTextEntered(sf::Uint32 unicode) {};
-	void Widget::onKeyPressed(const sf::Event::KeyEvent & key_event) {};
-
 	void Widget::startDraw(const sf::Vector2f & target_size) const
 	{
 		const auto bounds = getBounds();

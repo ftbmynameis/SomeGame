@@ -16,12 +16,12 @@ namespace gui
 
 		void setDrawMarker(bool b);
 		void setMarkerColor(const sf::Color& color);
+
+		// todo: what about focus?
+		virtual void onTextEntered(sf::Uint32 unicode);
 	protected:
 		// todo: draw maker doesn't blink and bugs if text is empty
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-		// todo: what about focus?
-		// virtual void onMousePressed(const sf::Event::MouseButtonEvent& mouse_btn_event);
-		virtual void onTextEntered(sf::Uint32 unicode);
 		void updateMarker();
 
 		// todo: a bit intransparent what can be overriden and what not.. clarify!

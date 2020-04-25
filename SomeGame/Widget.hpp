@@ -27,7 +27,12 @@ namespace gui
 		Widget& operator= (Widget&&) = default;
 
 		void onEvent(const sf::Event& event);
+		virtual void onMousePressed(const sf::Event::MouseButtonEvent& mouse_btn_event);
+		virtual void onTextEntered(sf::Uint32 unicode);
+		virtual void onKeyPressed(const sf::Event::KeyEvent& key_event);
 
+		// todo: the whole focus, enable & disable is unused and unimplemented yet
+		// todo: check what makes sense to be virtual to be derivable
 		void enable();
 		void disable();
 		void setFocusable();
@@ -45,10 +50,6 @@ namespace gui
 		bool isFocusable() const;
 
 	protected:
-		virtual void onMousePressed(const sf::Event::MouseButtonEvent& mouse_btn_event);
-		virtual void onTextEntered(sf::Uint32 unicode);
-		virtual void onKeyPressed(const sf::Event::KeyEvent& key_event);
-
 		void startDraw(const sf::Vector2f& target_size) const;
 		void endDraw() const;
 		virtual void drawDisabled(sf::RenderTarget& target, sf::RenderStates states) const;

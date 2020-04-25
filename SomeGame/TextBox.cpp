@@ -24,18 +24,6 @@ namespace gui
 		render_marker.setFillColor(color);
 	}
 
-	// protected
-	void TextBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
-	{
-		if (isEnabled())
-		{
-			Label::draw(target, states);
-
-			// draw marker
-			target.draw(render_marker, states);
-		}
-	}
-
 	void TextBox::onTextEntered(sf::Uint32 unicode)
 	{
 		switch (unicode)
@@ -65,6 +53,18 @@ namespace gui
 
 		// update alignment
 		computeTextAlignment();
+	}
+
+	// protected
+	void TextBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	{
+		if (isEnabled())
+		{
+			Label::draw(target, states);
+
+			// draw marker
+			target.draw(render_marker, states);
+		}
 	}
 
 	void TextBox::updateMarker()
